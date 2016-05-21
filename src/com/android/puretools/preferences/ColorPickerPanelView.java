@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings.preferences;
+package com.android.puretools.preferences;
 
 import android.content.Context;
 import android.graphics.Canvas;

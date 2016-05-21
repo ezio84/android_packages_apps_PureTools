@@ -16,7 +16,7 @@
 
 <resources xmlns:xliff="http://schemas.android.com/apk/res/android">
   <!-- App Name -->
-    <string name="app_name">PureNexus</string>
+    <string name="app_name">PureTools</string>
 
   <!-- About Frag strings -->
     <string name="about_frag_title">About</string>

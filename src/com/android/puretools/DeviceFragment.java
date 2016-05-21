@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings;
+package com.android.puretools;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;

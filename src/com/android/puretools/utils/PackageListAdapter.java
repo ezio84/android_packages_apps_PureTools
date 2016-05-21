@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings.utils;
+package com.android.puretools.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -33,7 +33,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.purenexussettings.R;
+import com.android.puretools.R;
 
 import java.lang.ref.WeakReference;
 import java.util.Collections;

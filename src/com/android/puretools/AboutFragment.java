@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings;
+package com.android.puretools;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

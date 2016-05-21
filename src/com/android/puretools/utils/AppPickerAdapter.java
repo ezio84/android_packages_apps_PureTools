@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings.utils;
+package com.android.puretools.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -32,8 +32,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.purenexussettings.R;
-import com.android.purenexussettings.TinkerActivity;
+import com.android.puretools.R;
+import com.android.puretools.TinkerActivity;
 
 import java.util.ArrayList;
 import java.util.List;

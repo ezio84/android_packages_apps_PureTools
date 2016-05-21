@@ -39,6 +39,6 @@
         pure:pressedTranslationZ="10dp"
         pure:layout_anchor="@id/recyclerList"
         pure:layout_anchorGravity="bottom|right|end"
-        pure:layout_behavior="com.android.purenexussettings.utils.FabScrollAnimator"/>
+        pure:layout_behavior="com.android.puretools.utils.FabScrollAnimator"/>
 
 </android.support.design.widget.CoordinatorLayout>

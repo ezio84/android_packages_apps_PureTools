@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:sharedUserId="android.uid.system"
-    package="com.android.purenexussettings">
+    package="com.android.puretools">
 
     <uses-sdk android:minSdkVersion="21" />
 
@@ -23,7 +23,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.android.purenexussettings.TINKERMAIN" />
+                <action android:name="com.android.puretools.TINKERMAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

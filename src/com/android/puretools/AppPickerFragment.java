@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings;
+package com.android.puretools;
 
 import android.app.Fragment;
 import android.graphics.Color;
@@ -25,8 +25,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.purenexussettings.utils.SlidingTabLayout;
-import com.android.purenexussettings.utils.ViewPagerAdapter;
+import com.android.puretools.utils.SlidingTabLayout;
+import com.android.puretools.utils.ViewPagerAdapter;
 
 public class AppPickerFragment extends Fragment {
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings.utils;
+package com.android.puretools.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -25,7 +25,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.android.purenexussettings.R;
+import com.android.puretools.R;
 
 
 class SlidingTabStrip extends LinearLayout {

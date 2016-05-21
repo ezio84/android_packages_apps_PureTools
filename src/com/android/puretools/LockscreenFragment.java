@@ -14,19 +14,26 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings;
+package com.android.puretools;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 
-public class LauncherActivity extends Activity {
+public class LockscreenFragment extends PreferenceFragment {
+    public LockscreenFragment(){}
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent launch = new Intent(this, TinkerActivity.class);
-        startActivity(launch);
-        finish();
+
+        // Load the preferences from an XML resource
+        addPreferencesFromResource(R.xml.lockscreen_fragment);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
+        return false;
     }
 }

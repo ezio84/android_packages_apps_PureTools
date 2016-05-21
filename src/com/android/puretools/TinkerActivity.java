@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings;
+package com.android.puretools;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -69,7 +69,7 @@ public class TinkerActivity extends AppCompatActivity {
     public static int FRAG_ARRAY_START;
 
     // stuff for widget calls to open fragments
-    public static final String EXTRA_START_FRAGMENT = "com.android.purenexussettings.tinkerings.EXTRA_START_FRAGMENT";
+    public static final String EXTRA_START_FRAGMENT = "com.android.puretools.tinkerings.EXTRA_START_FRAGMENT";
 
     public static final int REQUEST_CREATE_SHORTCUT = 3;
     public static final String PROJFI_PACKAGE_NAME = "com.google.android.apps.tycho";

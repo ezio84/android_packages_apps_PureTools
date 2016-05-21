@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings.preferences;
+package com.android.puretools.preferences;
 
 
 import android.content.Context;
@@ -38,7 +38,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.android.purenexussettings.R;
+import com.android.puretools.R;
 
 // Displays color picker and alpha slider
 public class ColorPickerView extends View {

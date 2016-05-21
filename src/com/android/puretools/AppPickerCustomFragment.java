@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.purenexussettings;
+package com.android.puretools;
 
 import android.app.Fragment;
-import com.android.purenexussettings.utils.AppPickerAdapter;
+import com.android.puretools.utils.AppPickerAdapter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;

@@ -16,7 +16,7 @@
  */
 
 
-package com.android.purenexussettings.utils;
+package com.android.puretools.utils;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -34,8 +34,8 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.purenexussettings.R;
-import com.android.purenexussettings.TinkerActivity;
+import com.android.puretools.R;
+import com.android.puretools.TinkerActivity;
 
 
 public class SlidingTabLayout extends HorizontalScrollView {
