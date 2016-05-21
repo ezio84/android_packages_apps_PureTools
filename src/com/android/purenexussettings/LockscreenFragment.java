@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.annotation.NonNull;
 
 public class LockscreenFragment extends PreferenceFragment {
     public LockscreenFragment(){}
@@ -34,7 +33,7 @@ public class LockscreenFragment extends PreferenceFragment {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, @NonNull Preference pref) {
+    public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
         return false;
     }
 }
