@@ -18,24 +18,24 @@
     <!-- Nav Drawer categories -->
     <!-- keep in the order they will appear! -->
     <string-array name="nav_drawer_cats" translatable="false">
-        <item>@string/interface_cat_title</item>
-        <item>@string/util_cat_title</item>
+        <item>@string/information_title</item>
+        <item>@string/system_tools_title</item>
     </string-array>
 
     <integer-array name="nav_drawer_cat_nums" translatable="false">
-        <item>5</item> <!-- this first part indicates the number of navdrawer frags NOT to be listed -->
+        <item>4</item> <!-- this first part indicates the number of navdrawer frags NOT to be listed -->
         <item>1</item>
-        <item>2</item>
+        <item>3</item>
     </integer-array>
 
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items" translatable="false">
         <item>@string/about_frag_title</item>
-        <item>@string/buildprop_frag_title</item>
         <item>@string/buildprop_frag_title2</item>
         <item>@string/apppicker_frag_title</item>
         <item>@string/fiswitch_frag_title</item>
         <item>@string/lockscreen_frag_title</item>
+        <item>@string/buildprop_frag_title</item>
         <item>@string/clock_frag_title</item>
         <item>@string/toolinfo_frag_title</item>
     </string-array>
@@ -44,11 +44,11 @@
     <!-- Keep them in order as the titles are in -->
     <string-array name="nav_drawer_fragments" translatable="false">
         <item>AboutFragment</item>
-        <item>BuildPropFragment</item>
         <item>EditPropFragment</item>
         <item>AppPickerFragment</item>
         <item>FiSwitchFragment</item>
         <item>LockscreenFragment</item>
+        <item>BuildPropFragment</item>
         <item>nullcLock</item>
         <item>DeviceFragment</item>
     </string-array>

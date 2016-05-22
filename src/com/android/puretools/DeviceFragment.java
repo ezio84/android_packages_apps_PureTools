@@ -23,14 +23,11 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.annotation.NonNull;
 
 public class DeviceFragment extends PreferenceFragment {
     private static final String RADIO_INFO = "radioinfo";
-    private static final String BUILDPROPEDITOR = "buildpropeditor";
     private static final String FISWITCH = "fiswitch";
 
-    private Preference mBuildProp;
     private Preference mFiSwitch;
 
     public DeviceFragment(){}
@@ -44,7 +41,6 @@ public class DeviceFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.device_fragment);
 
         Preference mRadioInfo = (Preference)findPreference(RADIO_INFO);
-        mBuildProp = (Preference)findPreference(BUILDPROPEDITOR);
         mFiSwitch = (Preference)findPreference(FISWITCH);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
@@ -68,19 +64,12 @@ public class DeviceFragment extends PreferenceFragment {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, @NonNull Preference pref) {
-        if (pref == mBuildProp) {
-            ((TinkerActivity)getActivity()).displaySubFrag(getString(R.string.buildprop_frag_title));
-
-            return true;
-        }
-
+    public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
         if (pref == mFiSwitch) {
             ((TinkerActivity)getActivity()).displaySubFrag(getString(R.string.fiswitch_frag_title));
 
             return true;
         }
-
         return false;
     }
 }

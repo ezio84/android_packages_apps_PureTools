@@ -88,7 +88,7 @@
 &#8226; Those not mentioned but should have been<br />]]></string>
 
   <!-- BuildProp editor -->
-    <string name="buildprop_frag_title">Build prop</string>
+    <string name="buildprop_frag_title">Build Prop Editor</string>
     <string name="buildprop_frag_title2">Edit build prop</string>
     <string name="editprop_key">Property Key</string>
     <string name="editprop_name">Property Name</string>
@@ -129,8 +129,6 @@
     <string name="summary_usage_statistics">Summary of application usage</string>
     <string name="wifi_title">WiFi information</string>
     <string name="wifi_summary">Various bits of WiFi relevant information</string>
-    <string name="buildproptitle">Build.prop editor</string>
-    <string name="buildpropsummary">Click to open build.prop editor</string>
     <string name="fiswitchtitle">Project Fi Tools</string>
     <string name="fiswitchsummary">Click for useful dial codes</string>
 
@@ -160,8 +158,8 @@
     <string name="lockscreen_frag_title">Lockscreen</string>
 
   <!-- Navdrawer categories -->
-    <string name="interface_cat_title">Interface</string>
-    <string name="util_cat_title">Utilities</string>
+    <string name="information_title">Information</string>
+    <string name="system_tools_title">System Tools</string>
 
   <!-- toolbar menu strings -->
     <string name="action_about">About</string>
