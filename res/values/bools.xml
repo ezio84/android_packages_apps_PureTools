@@ -18,5 +18,5 @@
     <bool name="showFullColorPickSummary">true</bool>
     <!-- wallpaper picker -->
     <bool name="allow_rotation">false</bool>
-    <bool name="center_crop">false</bool>
+    <bool name="center_crop">true</bool>
 </resources>

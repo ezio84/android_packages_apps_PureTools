@@ -137,10 +137,12 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
 
     public static class UriWallpaperInfo extends WallpaperTileInfo {
         private Uri mUri;
+        private boolean mKeyguardMode;
         private boolean mFirstClick = true;
         private BitmapRegionTileSource.UriBitmapSource mBitmapSource;
-        public UriWallpaperInfo(Uri uri) {
+        public UriWallpaperInfo(Uri uri, boolean isKeyguardMode) {
             mUri = uri;
+            mKeyguardMode = isKeyguardMode;
         }
         @Override
         public void onClick(final WallpaperPickerActivity a) {
@@ -180,7 +182,7 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
                     Point thumbSize = getDefaultThumbnailSize(a.getResources());
                     // rotation is set to 0 since imageBytes has already been correctly rotated
                     Bitmap thumb = createThumbnail(
-                            thumbSize, null, null, imageBytes, null, 0, 0, true);
+                            thumbSize, null, null, imageBytes, null, 0, 0, true, mKeyguardMode);
                     a.getSavedImages().writeImage(thumb, imageBytes);
                 }
             };
@@ -374,6 +376,9 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
     protected void init() {
         setContentView(R.layout.wallpaper_picker);
 
+        Intent pickerIntent = getIntent();
+        mKeyguardMode = pickerIntent.getBooleanExtra("keyguardMode", false);
+
         mCropView = (CropView) findViewById(R.id.cropView);
         mCropView.setVisibility(View.INVISIBLE);
 
@@ -469,25 +474,27 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
         mSavedImages.loadThumbnailsAndImageIdList();
         populateWallpapersFromAdapter(mWallpapersView, mSavedImages, true);
 
-        // Populate the live wallpapers
-        final LinearLayout liveWallpapersView =
-                (LinearLayout) findViewById(R.id.live_wallpaper_list);
-        final LiveWallpaperListAdapter a = new LiveWallpaperListAdapter(this);
-        a.registerDataSetObserver(new DataSetObserver() {
-            public void onChanged() {
-                liveWallpapersView.removeAllViews();
-                populateWallpapersFromAdapter(liveWallpapersView, a, false);
-                initializeScrollForRtl();
-                updateTileIndices();
-            }
-        });
+        if (!mKeyguardMode) {
+            // Populate the live wallpapers
+            final LinearLayout liveWallpapersView =
+                    (LinearLayout) findViewById(R.id.live_wallpaper_list);
+            final LiveWallpaperListAdapter a = new LiveWallpaperListAdapter(this);
+            a.registerDataSetObserver(new DataSetObserver() {
+                public void onChanged() {
+                    liveWallpapersView.removeAllViews();
+                    populateWallpapersFromAdapter(liveWallpapersView, a, false);
+                    initializeScrollForRtl();
+                    updateTileIndices();
+                }
+            });
 
-        // Populate the third-party wallpaper pickers
-        final LinearLayout thirdPartyWallpapersView =
-                (LinearLayout) findViewById(R.id.third_party_wallpaper_list);
-        final ThirdPartyWallpaperPickerListAdapter ta =
-                new ThirdPartyWallpaperPickerListAdapter(this);
-        populateWallpapersFromAdapter(thirdPartyWallpapersView, ta, false);
+            // Populate the third-party wallpaper pickers
+            final LinearLayout thirdPartyWallpapersView =
+                    (LinearLayout) findViewById(R.id.third_party_wallpaper_list);
+            final ThirdPartyWallpaperPickerListAdapter ta =
+                    new ThirdPartyWallpaperPickerListAdapter(this);
+            populateWallpapersFromAdapter(thirdPartyWallpapersView, ta, false);
+        }
 
         // Add a tile for the Gallery
         LinearLayout masterWallpaperList = (LinearLayout) findViewById(R.id.master_wallpaper_list);
@@ -786,20 +793,21 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
     }
 
     private static Bitmap createThumbnail(Point size, Context context, Uri uri, byte[] imageBytes,
-            Resources res, int resId, int rotation, boolean leftAligned) {
+            Resources res, int resId, int rotation, boolean leftAligned, boolean isKeyguardMode) {
         int width = size.x;
         int height = size.y;
 
         BitmapCropTask cropTask;
         if (uri != null) {
             cropTask = new BitmapCropTask(
-                    context, uri, null, rotation, width, height, false, true, null);
+                    context, uri, null, rotation, width, height, false, true, isKeyguardMode, null);
         } else if (imageBytes != null) {
             cropTask = new BitmapCropTask(
-                    imageBytes, null, rotation, width, height, false, true, null);
+                    imageBytes, null, rotation, width, height, false, true, isKeyguardMode, null);
         }  else {
             cropTask = new BitmapCropTask(
-                    context, res, resId, null, rotation, width, height, false, true, null);
+                    context, res, resId, null, rotation, width, height, false, true, isKeyguardMode,
+                    null);
         }
         Point bounds = cropTask.getImageBounds();
         if (bounds == null || bounds.x == 0 || bounds.y == 0) {
@@ -841,7 +849,8 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
             protected Bitmap doInBackground(Void...args) {
                 try {
                     int rotation = WallpaperCropActivity.getRotationFromExif(context, uri);
-                    return createThumbnail(defaultSize, context, uri, null, null, 0, rotation, false);
+                    return createThumbnail(defaultSize, context, uri, null, null, 0, rotation,
+                            false, mKeyguardMode);
                 } catch (SecurityException securityException) {
                     if (isDestroyed()) {
                         // Temporarily granted permissions are revoked when the activity
@@ -869,7 +878,7 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
             }
         }.execute();
 
-        UriWallpaperInfo info = new UriWallpaperInfo(uri);
+        UriWallpaperInfo info = new UriWallpaperInfo(uri, mKeyguardMode);
         pickedImageThumbnail.setTag(info);
         info.setView(pickedImageThumbnail);
         addLongPressHandler(pickedImageThumbnail);
@@ -1027,7 +1036,8 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
             Point defaultThumbSize = getDefaultThumbnailSize(res);
             int rotation = WallpaperCropActivity.getRotationFromExif(res, resId);
             thumb = createThumbnail(
-                    defaultThumbSize, this, null, null, sysRes, resId, rotation, false);
+                    defaultThumbSize, this, null, null, sysRes, resId, rotation, false,
+                    mKeyguardMode);
             if (thumb != null) {
                 defaultWallpaperExists = saveDefaultWallpaperThumb(thumb);
             }
