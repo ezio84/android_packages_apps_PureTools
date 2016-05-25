@@ -39,4 +39,8 @@
     <dimen name="card_fade_edge">75dp</dimen>
     <dimen name="vert_fade_edge">50dp</dimen>
     <dimen name="horiz_fade_edge">50dp</dimen>
+    <!-- Wallpaper picker -->
+    <dimen name="wallpaperThumbnailWidth">106.5dp</dimen>
+    <dimen name="wallpaperThumbnailHeight">94.5dp</dimen>
+    <dimen name="wallpaperItemIconSize">32dp</dimen>
 </resources>

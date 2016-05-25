@@ -172,4 +172,20 @@
     <string name="editprop_backup">Backup</string>
     <string name="editprop_restore">Restore</string>
     <string name="action_fabhide">Show FAB</string>
+
+    <!-- WallpaperPicker -->
+    <string name="wallpaper_instructions">Set wallpaper</string>
+    <string name="image_load_fail">Coudn\'t load image</string>
+    <string name="wallpaper_load_fail">Couldn\'t load image as wallpaper</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="zero">%1$d selected</item>
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <string name="wallpaper_accessibility_name">Wallpaper %1$d of %2$d</string>
+    <string name="announce_selection">Selected <xliff:g id="label" example="Wallpaper 3 of 10">%1$s</xliff:g></string>
+    <string name="wallpaper_delete">Delete</string>
+    <string name="pick_image">Pick image</string>
+    <string name="pick_wallpaper">Wallpapers</string>
+    <string name="crop_wallpaper">Crop wallpaper</string>
 </resources>
