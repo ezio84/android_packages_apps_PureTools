@@ -35,6 +35,7 @@ LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PROGUARD_ENABLED := disabled
 
+LOCAL_JAVA_LIBRARIES := org.apache.http.legacy
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-v4
 LOCAL_STATIC_JAVA_LIBRARIES += android-support-v7-appcompat
 LOCAL_STATIC_JAVA_LIBRARIES += android-support-v7-recyclerview
